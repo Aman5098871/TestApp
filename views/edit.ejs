@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link to external stylesheet (if you have custom CSS) -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    
+    <!-- Include Tailwind CSS via CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Edit Page</title>
+</head>
+<body class="bg-zinc-900 text-white">
+
+    <!-- Main container with padding and full height/width -->
+    <div class="w-full h-full p-10">
+        
+        <!-- Navigation link to view all users -->
+        <div class="nav mb-10">
+            <a class="text-blue-500 inline-block" href="/read">Update Users</a>
+        </div>
+        
+        <!-- Page title -->
+        <h1 class="tracking-tighter text-3xl mb-3">Edit User</h1>
+        
+        <!-- Form to update an existing user -->
+        <form action="/update/<%= user._id %>" method="post">
+            <!-- Input for user name -->
+            <input 
+                class="px-5 py-2 mb-3 bg-transparent border-2 border-zinc-800 rounded-lg outline-none" 
+                type="text" 
+                placeholder="Name" 
+                name="name" 
+                value="<%= user.name %>"
+                required>
+            
+            <!-- Input for user email -->
+            <input 
+                class="px-5 py-2 mb-3 bg-transparent border-2 border-zinc-800 rounded-lg outline-none" 
+                type="email" 
+                placeholder="Email" 
+                name="email" 
+                value="<%= user.email %>"
+                required>
+            
+            <!-- Input for user image URL -->
+            <input 
+                class="px-5 py-2 mb-3 bg-transparent border-2 border-zinc-800 rounded-lg outline-none" 
+                type="text" 
+                placeholder="Image URL" 
+                name="image"
+                value="<%= user.image %>">
+            
+            <!-- Submit button -->
+            <input 
+                class="px-5 py-2 bg-yellow-600 text-black rounded-lg ml-3" 
+                type="submit" 
+                value="Update User">
+        </form>
+    </div>
+
+</body>
+</html>
